@@ -1,0 +1,146 @@
+# Introduction to the week and introduction to recurtion 
+
+# COVID spread though 1 people to 7 billion people as a tree the power of 2 , firtly 1 ,2 ,3 ,4 and last 30.
+
+
+
+# LEC 2 STARTS HERE.
+
+# Theoretical Introduction to recurtion 
+
+# compound interest
+
+# # 10% 
+# 1st year --> 2000 = 2200
+# 2st year --> 2000 = 2420
+# 3st year --> 2000 = 
+
+
+# f(1)= (2000)(1.1)
+# f(2)=(2000)(1.1)(1.1)
+# f(3)=(2000)(1.1)(1.1)
+
+
+# f(n)= f(n-1)(1.1)
+
+# Sum(n)= Sum(n-1) + n  ***
+
+# n! = n(n-1)(n-2)....1
+
+# Fact(n) = n*[Fact(n-1)]     ***
+
+
+# LEC3:- Recurtion an illustration
+
+n = int(input(("Enter no. ")))
+ans = 0
+for i in range(n):
+    ans = ans + (i+1)
+
+print(ans)
+
+def sum(n):
+    ans = 0 
+    for i in range(n):
+        ans = ans +(i+1)
+    return ans    
+
+def sum(n):
+    if (n==1):
+        return 1
+    else:
+        return n+sum(n-1)
+    
+print(sum(100))    
+
+
+def comp(p,n):
+    if (n==1):
+        return p*(1.1)
+    else:
+        return (comp(p, n-1))*1.1
+
+print(comp(10,5))    
+
+
+
+def fact(n):
+    if (n==1):
+        return 1
+    else:
+        return (fact(n-1))*n #Fact(n)=n*[Fact(n-1)] 
+    
+print(fact(5))    
+
+
+
+
+#LEC4:- Recurtion a simple question
+
+L = [11 , 12, 13 , 14 , 15, 2 , 0 , 5 , 6] 
+ 
+
+# check0 (L):
+#    if L[0] == 0:
+#         return True
+#    else:
+#         return False
+
+# INTERECTIVE PYTHON IPYTHON/ SPYDER  TERMINAL 
+
+# LEC5:- Recursion Find 0 in a list.
+# VIM code editer is used along with ipython for interection 
+
+def check0(L):
+   if (len(L) == 0):
+        return 0
+   if(L[0]==0):
+        return 1
+   else:
+       return check0(L[1:len(L)])       
+
+ans = (check0([1,2,3,2,4,5,6,7,8,9,0,8,21,66,]))
+print(ans)
+
+
+
+# LEC6:- Sorting_Recursively.
+
+# def mini(L):
+#     mini = L[0]
+#     for x in L:
+#         if (x < mini):
+#             mini = x
+#     return mini
+
+# def Sort(L):
+#     '''recursively sort the list L'''
+
+#     m=mini(L)
+
+#     L.remove(m)
+#     return [m]+Sort(L)
+
+# L=[5,25,565,78,6,48,32,7] 
+
+# print(Sort(L))
+
+def mini(L):
+    '''Find the smallest element in L'''
+    mini = L[0]  
+    for x in L:
+        if x < mini:
+            mini = x
+    return mini
+
+def Sort(L):
+    '''Recursively sort the list L'''
+    if not L:  
+        return []  
+    
+    m = mini(L)  
+    L.remove(m)  
+    return [m] + Sort(L)
+
+L = [5, 25, 565, 78, 6, 48, 32, 7]
+print(Sort(L))
